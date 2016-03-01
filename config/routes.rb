@@ -4,11 +4,12 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-
+  get '/car'=>'car_details#index'
   # root to: "sessions#new"
   # You can have the root of your site routed with "root"
-  get '/home' => 'car_details#index'
-  root 'car_details#index'
+  # get '/home' => 'car_details#index'
+  # root 'car_details#index'
+  root 'page#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

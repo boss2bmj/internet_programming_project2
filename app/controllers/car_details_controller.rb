@@ -1,6 +1,6 @@
 class CarDetailsController < ApplicationController
   before_action :set_car_detail, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_admin!
+  before_action :authenticate_admin!, only:[:new,:create,:show, :edit, :update, :destroy]
 
   # GET /car_details
   # GET /car_details.json
