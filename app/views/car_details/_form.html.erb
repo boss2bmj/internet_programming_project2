@@ -13,29 +13,38 @@
 
   <div class="field">
     <%= f.label :car_license %><br>
-    <%= f.text_field :car_license %>
+    <%= f.text_field :car_license,class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: "form-control", row: "3" %>
   </div>
   <div class="field">
     <%= f.label :enter_date %><br>
     <%= f.date_select :enter_date %>
   </div>
+
   <div class="field">
     <%= f.label :car_category %><br>
-    <%= f.text_field :car_category %>
+    <%= f.text_field :car_category,class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :car_subcategory %><br>
-    <%= f.text_field :car_subcategory %>
+    <%= f.text_field :car_subcategory,class: "form-control" %>
   </div>
   <div class="field">
     <%= f.label :car_status %><br>
-    <%= f.text_field :car_status %>
+
+    <select class="form-control" name="car_detail[car_status]" id="car_detail_car_status">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
   </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save",class: "btn btn-success" %>
   </div>
 <% end %>
