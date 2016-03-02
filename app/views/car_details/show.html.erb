@@ -28,6 +28,7 @@
   <strong>Car status:</strong>
   <%= @car_detail.car_status %>
 </p>
-
+<% if admin_signed_in? %>
 <%= link_to 'Edit', edit_car_detail_path(@car_detail) %> |
+<%end%>
 <%= link_to 'Back', car_details_path %>
