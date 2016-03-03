@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<img class="" width="350" data-caption= <%= @car_photo.image_name %> src= <%= @car_photo.image.url(:large) %> >
+<br>
+  <strong>Image name:</strong>
+  <%= @car_photo.image_name %>
+</p>
+
+<%= link_to 'Edit', edit_car_photo_path(@car_photo) %> |
+<%= link_to 'Back', car_photos_path %>
