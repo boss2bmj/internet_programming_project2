@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303151114) do
+ActiveRecord::Schema.define(version: 20160304035135) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20160303151114) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "car_id"
   end
 
 end

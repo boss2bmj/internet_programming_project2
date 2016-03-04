@@ -14,10 +14,11 @@ rails g devise:views
 
 ##MVC
 
+```
 rails g scaffold CarDetail car_license:string description:text enter_date:date car_category:string car_subcategory:string car_status:string
 
 rails g controller page
-
+```
 
 
 ##Search function
@@ -87,3 +88,14 @@ to make photo pop up when choose
 
 ```
 
+
+
+
+##share image to each car
+
+
+```bash
+$ rails g migration add_car_id_to_CarPhoto car_id:integer
+$ rake db:migrate
+
+```

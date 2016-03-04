@@ -13,3 +13,6 @@ rails g paperclip CarPhoto image
 1.)route
 2.)change form
 3.)dependencies
+
+
+47.00
