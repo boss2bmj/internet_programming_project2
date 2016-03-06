@@ -1,0 +1,51 @@
+<p>
+  <strong>Car license:</strong>
+  <%= @car_detail.car_license %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @car_detail.description %>
+</p>
+
+<p>
+  <strong>Enter date:</strong>
+  <%= @car_detail.enter_date %>
+</p>
+
+<p>
+  <strong>Car category:</strong>
+  <%= @car_detail.car_category %>
+</p>
+
+<p>
+  <strong>Car subcategory:</strong>
+  <%= @car_detail.car_subcategory %>
+</p>
+
+<p>
+  <strong>Car status:</strong>
+  <%= @car_detail.car_status %>
+</p>
+
+
+
+<div class="">
+  <h1>Photo</h1>
+  <%if @car_photos.blank? %>
+    <h3>No Photo Here Yet, Please contact us for more information</h3>
+  <%else%>
+    <% @car_photos.each do |car_photo| %>
+      <div class="car_photos">
+        <%= car_photo.image_name %>
+        <%= image_tag car_photo.image.url(:medium) %>
+
+      </div>
+
+  <%end %>
+  <%end %>
+
+</div>
+
+
+<%= link_to 'Back', car_details_path %>

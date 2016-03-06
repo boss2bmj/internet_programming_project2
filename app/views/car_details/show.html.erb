@@ -1,34 +1,5 @@
-
-<p>
-  <strong>Car license:</strong>
-  <%= @car_detail.car_license %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @car_detail.description %>
-</p>
-
-<p>
-  <strong>Enter date:</strong>
-  <%= @car_detail.enter_date %>
-</p>
-
-<p>
-  <strong>Car category:</strong>
-  <%= @car_detail.car_category %>
-</p>
-
-<p>
-  <strong>Car subcategory:</strong>
-  <%= @car_detail.car_subcategory %>
-</p>
-
-<p>
-  <strong>Car status:</strong>
-  <%= @car_detail.car_status %>
-</p>
 <% if admin_signed_in? %>
-<%= link_to 'Edit', edit_car_detail_path(@car_detail) %> |
-<%end%>
-<%= link_to 'Back', car_details_path %>
+  <%= render 'showadmin'%>
+<% else %>
+  <%= render 'showuser'%>
+<% end %>

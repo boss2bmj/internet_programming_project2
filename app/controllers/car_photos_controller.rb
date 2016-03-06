@@ -1,5 +1,7 @@
 class CarPhotosController < ApplicationController
   before_action :set_car_photo, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!, only:[:new,:create, :edit, :update, :destroy]
+  before_action :set_car_detail
 
   # GET /car_photos
   # GET /car_photos.json
@@ -25,24 +27,22 @@ class CarPhotosController < ApplicationController
   # POST /car_photos.json
   def create
     @car_photo = CarPhoto.new(car_photo_params)
-
-    respond_to do |format|
+    @car_photo.car_id = @car_detail.id
       if @car_photo.save
-        format.html { redirect_to @car_photo, notice: 'Car photo was successfully created.' }
-        format.json { render :show, status: :created, location: @car_photo }
+        redirect_to @car_detail
       else
-        format.html { render :new }
-        format.json { render json: @car_photo.errors, status: :unprocessable_entity }
+        render 'new'
+
       end
     end
-  end
+
 
   # PATCH/PUT /car_photos/1
   # PATCH/PUT /car_photos/1.json
   def update
     respond_to do |format|
       if @car_photo.update(car_photo_params)
-        format.html { redirect_to @car_photo, notice: 'Car photo was successfully updated.' }
+        format.html { redirect_to car_detail_path(@car_detail), notice: 'Car photo was successfully updated.' }
         format.json { render :show, status: :ok, location: @car_photo }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class CarPhotosController < ApplicationController
   def destroy
     @car_photo.destroy
     respond_to do |format|
-      format.html { redirect_to car_photos_url, notice: 'Car photo was successfully destroyed.' }
+      format.html { redirect_to car_detail_path(@car_detail), notice: 'Car photo was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +65,10 @@ class CarPhotosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_car_photo
       @car_photo = CarPhoto.find(params[:id])
+    end
+    def set_car_detail
+      @car_detail = CarDetail.find(params[:car_detail_id])
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
