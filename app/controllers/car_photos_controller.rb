@@ -1,5 +1,6 @@
 class CarPhotosController < ApplicationController
   before_action :set_car_photo, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_admin!, only:[:new,:create, :edit, :update, :destroy]
   before_action :set_car_detail
 
   # GET /car_photos

@@ -35,7 +35,7 @@
       <tr>
         <td><%= car_detail.car_license %></td>
         <td><%= car_detail.description %></td>
-        <td><%= car_detail.enter_date %></td>
+        <td><%= car_detail.enter_date.to_formatted_s(:long_ordinal) %></td>
         <td><%= car_detail.car_category %></td>
         <td><%= car_detail.car_subcategory %></td>
         <td><%= car_detail.car_status %></td>
